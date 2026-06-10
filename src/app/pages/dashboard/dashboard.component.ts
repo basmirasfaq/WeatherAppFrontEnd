@@ -39,7 +39,7 @@ export class DashboardComponent {
       .subscribe({
 
         next: (response) => {
-
+ 
           console.log(response);
 
           this.weatherData = response;
