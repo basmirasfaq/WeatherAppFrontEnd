@@ -1,0 +1,55 @@
+<div class="ml-64 min-h-screen bg-slate-950 text-white p-8">
+
+  <h1 class="text-4xl font-bold mb-10">
+    📊 Weather Analytics
+  </h1>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+    <!-- Temperature Chart -->
+    <div
+      class="bg-slate-800 border border-slate-700 rounded-2xl p-6 shadow-2xl">
+
+      <h2
+        class="text-2xl font-bold mb-6 text-blue-400">
+
+        🌡 Temperature Trend
+
+      </h2>
+
+     <div class="chart-container">
+  <canvas
+    baseChart
+    [data]="lineChartData"
+    [options]="chartOptions"
+    [type]="'line'">
+  </canvas>
+</div>
+
+    </div>
+
+    <!-- Humidity Chart -->
+    <div
+      class="bg-slate-800 border border-slate-700 rounded-2xl p-6 shadow-2xl">
+
+      <h2
+        class="text-2xl font-bold mb-6 text-cyan-400">
+
+        💧 Humidity Levels
+
+      </h2>
+
+      <div class="chart-container">
+  <canvas
+    baseChart
+    [data]="barChartData"
+    [options]="chartOptions"
+    [type]="'bar'">
+  </canvas>
+</div>
+
+    </div>
+
+  </div>
+
+</div>

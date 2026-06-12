@@ -28,4 +28,37 @@ export class WeatherService {
     );
   }
 
+saveFavourite(city: any) {
+
+  return this.http.post(
+    'http://localhost:8080/favorites',
+    city
+  );
+}
+
+getFavourites() {
+
+  return this.http.get(
+    'http://localhost:8080/favorites'
+  );
+}
+deleteFavourite(id: number) {
+
+  return this.http.delete(
+    `http://localhost:8080/favorites/${id}`
+  );
+}
+
+getForecast(city: string): Observable<any> {
+
+  return this.http.get(
+    `http://localhost:8080/weather/forecast/${city}`
+  );
+}
+getForecastByCoords(lat: number, lon: number) {
+  return this.http.get(
+    `http://localhost:8080/weather/forecastlocation/${lat}/${lon}`
+    
+  );
+}
 }
