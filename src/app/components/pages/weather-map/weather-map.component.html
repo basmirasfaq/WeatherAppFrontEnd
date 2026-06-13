@@ -1,0 +1,181 @@
+<div class="ml-64 p-6 bg-slate-800 min-h-screen">
+
+  <h1 class="text-4xl font-bold text-white mb-6">
+    🗺 Weather Map
+  </h1>
+ <!-- Map -->
+
+  <div
+    id="map"
+    class="w-full h-[400px] rounded-xl shadow-xl border border-slate-700 p-5 mb-6">
+  </div>
+  <!-- Current Weather Card -->
+
+  <div
+    *ngIf="weatherData"
+    class="bg-slate-900 rounded-xl p-6 mb-6 text-white shadow-xl">
+
+    <div class="flex justify-between items-center">
+
+      <div>
+
+        <h2 class="text-2xl font-bold">
+          📍 {{ weatherData.name }}
+        </h2>
+
+        <p class="text-5xl font-bold mt-3">
+          {{ weatherData.main.temp }}°C
+        </p>
+
+        <p class="text-xl mt-2 text-slate-300">
+          {{ weatherData.weather[0].main }}
+        </p>
+
+      </div>
+
+      <div>
+
+        <span
+          class="px-4 py-2 rounded-lg font-semibold"
+
+          [ngClass]="{
+            'bg-blue-500':
+              weatherData.main.temp <= 20,
+
+            'bg-green-500':
+              weatherData.main.temp > 20 &&
+              weatherData.main.temp <= 28,
+
+            'bg-orange-500':
+              weatherData.main.temp > 28 &&
+              weatherData.main.temp <= 35,
+
+            'bg-red-500':
+              weatherData.main.temp > 35
+          }">
+
+          Temperature Zone
+
+        </span>
+
+      </div>
+
+    </div>
+
+    <div
+      class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+
+      <div
+        class="bg-slate-800 p-4 rounded-lg">
+
+        <p class="text-slate-400">
+          💧 Humidity
+        </p>
+
+        <p class="text-2xl font-bold">
+          {{ weatherData.main.humidity }}%
+        </p>
+
+      </div>
+
+      <div
+        class="bg-slate-800 p-4 rounded-lg">
+
+        <p class="text-slate-400">
+          🌬 Wind Speed
+        </p>
+
+        <p class="text-2xl font-bold">
+          {{ weatherData.wind.speed }} km/h
+        </p>
+
+      </div>
+
+      <div
+        class="bg-slate-800 p-4 rounded-lg">
+
+        <p class="text-slate-400">
+          ☁ Condition
+        </p>
+
+        <p class="text-2xl font-bold">
+          {{ weatherData.weather[0].main }}
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Temperature Legend -->
+
+  <div
+    class="bg-slate-900 rounded-xl p-5 mb-6 text-white shadow-xl">
+
+    <h3 class="text-xl font-bold mb-4">
+      🌡 Temperature Scale
+    </h3>
+
+    <div
+      class="flex flex-wrap gap-6">
+
+      <div
+        class="flex items-center gap-2">
+
+        <div
+          class="w-5 h-5 rounded bg-blue-500">
+        </div>
+
+        <span>
+          ≤ 20°C (Cool)
+        </span>
+
+      </div>
+
+      <div
+        class="flex items-center gap-2">
+
+        <div
+          class="w-5 h-5 rounded bg-green-500">
+        </div>
+
+        <span>
+          21°C - 28°C (Pleasant)
+        </span>
+
+      </div>
+
+      <div
+        class="flex items-center gap-2">
+
+        <div
+          class="w-5 h-5 rounded bg-orange-500">
+        </div>
+
+        <span>
+          29°C - 35°C (Warm)
+        </span>
+
+      </div>
+
+      <div
+        class="flex items-center gap-2">
+
+        <div
+          class="w-5 h-5 rounded bg-red-500">
+        </div>
+
+        <span>
+          > 35°C (Hot)
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+ 
+
+</div>

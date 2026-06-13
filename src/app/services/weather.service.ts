@@ -61,4 +61,12 @@ getForecastByCoords(lat: number, lon: number) {
     
   );
 }
+getWeatherByLocation(
+  lat: number,
+  lon: number
+) {
+  return this.http.get(
+    `http://localhost:8080/weather/location/${lat}/${lon}`
+  );
+}
 }
